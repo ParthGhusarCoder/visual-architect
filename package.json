@@ -1,0 +1,39 @@
+{
+  "name": "visual-architect-skill",
+  "version": "1.0.0",
+  "description": "Agent Skill + CLI for designing, validating, reviewing, and evolving exceptional technical diagrams.",
+  "type": "module",
+  "bin": {
+    "visual-architect": "bin/visual-architect.mjs"
+  },
+  "files": [
+    "bin",
+    "skills/visual-architect",
+    "README.md",
+    "LICENSE",
+    "CHANGELOG.md"
+  ],
+  "scripts": {
+    "test": "node --test",
+    "check": "node bin/visual-architect.mjs validate skills/visual-architect && node --test",
+    "prepack": "npm run check"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "keywords": [
+    "agent-skill",
+    "ai-agent",
+    "diagram",
+    "architecture",
+    "svg",
+    "technical-diagram",
+    "codex",
+    "claude-code",
+    "skills-sh"
+  ],
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  }
+}

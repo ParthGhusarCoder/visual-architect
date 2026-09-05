@@ -1,0 +1,11 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import { execFileSync } from 'node:child_process';
+import fs from 'node:fs';
+import os from 'node:os';
+import path from 'node:path';
+const cli=path.resolve('bin/visual-architect.mjs');
+test('version',()=>{assert.equal(execFileSync(process.execPath,[cli,'--version'],{encoding:'utf8'}).trim(),'1.0.0')});
+test('validate bundled skill',()=>{assert.match(execFileSync(process.execPath,[cli,'validate'],{encoding:'utf8'}),/Valid Visual Architect skill/)});
+test('init installs skill',()=>{const tmp=fs.mkdtempSync(path.join(os.tmpdir(),'va-'));execFileSync(process.execPath,[cli,'init','--dir',tmp],{encoding:'utf8'});assert.ok(fs.existsSync(path.join(tmp,'visual-architect','SKILL.md')))});
+test('demo writes html',()=>{const tmp=fs.mkdtempSync(path.join(os.tmpdir(),'va-demo-'));const f=path.join(tmp,'demo.html');execFileSync(process.execPath,[cli,'demo','--out',f],{encoding:'utf8'});assert.match(fs.readFileSync(f,'utf8'),/data-va-id/)});
