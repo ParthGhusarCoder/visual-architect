@@ -1,94 +1,110 @@
 # Visual Architect
 
-**Design diagrams like an architect. Review them like a product.**
+**Technical diagrams that are easier to understand, cheaper for agents to generate, and actually pleasant to review.**
 
-Visual Architect is a portable Agent Skill plus a small npm CLI for creating high-quality technical diagrams with AI. It adds semantic modeling, automatic diagram selection, strict visual quality checks, stable element identity, precise human review, revision diffs, and code-to-diagram consistency guidance.
+Visual Architect is an Agent Skill + zero-dependency npm CLI. It models the system before drawing, automatically selects the right diagram grammar, keeps assumptions explicit, validates clarity, and can wrap diagrams in a polished interactive **Review Studio**.
 
-## Why it feels different
+## What changed in 1.1
 
-Most diagram prompts jump directly from words to boxes. Visual Architect first models the system, separates facts from assumptions, chooses the right visual grammar, controls complexity, then validates the output before review.
+- **~54% smaller `SKILL.md`** (9.1 KB → ~4.2 KB) with progressive-disclosure references.
+- Review UI is **opt-in**, so simple diagram requests do not pay for interaction they do not need.
+- Agents copy the Review Studio shell and replace only metadata + SVG instead of regenerating UI boilerplate.
+- New dark/light responsive Review Studio with pan/zoom/fit, stable element selection, quick review chips, open/resolved feedback, local persistence, JSON export, and mobile bottom-sheet behavior.
+- Reusable SVG classes reduce repeated styling in generated artifacts.
+- Validator now enforces a 6 KB `SKILL.md` budget to prevent future token bloat.
+- A real School ERP online-fee-payment showcase is included and used by `visual-architect demo`.
 
-The included **Review Canvas** makes generated HTML diagrams clickable. Reviewers can select a node or connector, attach feedback to its stable ID, and export structured JSON back to an AI agent. No server and no runtime dependency are required.
+## Install
 
-## Install the npm CLI
+### Agent Skill
+
+```bash
+npx skills add ParthGhusarCoder/visual-architect --skill visual-architect
+```
+
+### npm CLI
 
 ```bash
 npm install -g visual-architect-skill
 visual-architect init
 ```
 
-Or run it without a global install:
+or:
 
 ```bash
 npx visual-architect-skill init
 ```
 
-This installs the bundled skill to `.agents/skills/visual-architect` by default.
-
-## Install from skills.sh / GitHub
-
-After publishing this repository to GitHub, users can install the skill directly with:
-
-```bash
-npx skills add <your-github-owner>/<your-repo> --skill visual-architect
-```
-
-The repository keeps the skill at `skills/visual-architect/`, which matches the common multi-skill repository structure.
-
 ## CLI
 
 ```bash
 visual-architect init                 # install skill into .agents/skills
-visual-architect init --dir <folder>  # install to another skills root
-visual-architect validate             # validate bundled skill
-visual-architect validate <path>      # validate a local copy
+visual-architect validate             # validate skill + token budget
 visual-architect doctor               # environment sanity check
-visual-architect demo                 # write the interactive Review Canvas demo
+visual-architect demo                 # write polished School ERP demo
+visual-architect canvas               # write reusable Review Studio shell
 visual-architect path                 # print bundled skill path
 ```
 
-`init` refuses to overwrite an existing installation unless `--force` is provided.
+## Example
 
-## Example prompts
-
-```text
-Use Visual Architect to create a current-state architecture diagram of this repository. Inspect the code first, distinguish observed relationships from assumptions, and make the output reviewable.
-```
+Prompt:
 
 ```text
-Create a School ERP fee-payment sequence diagram covering Parent App, ERP API, payment gateway, webhook handling, database update, receipt generation, and notification. Mark anything not confirmed as an assumption.
+Create a School ERP online fee-payment diagram. Show Parent App → ERP API → Fees Service → payment gateway, the webhook back to Fees Service, database update, receipt generation and notification. Do not invent the gateway vendor. Make it reviewable.
 ```
 
-```text
-Compare our current and proposed Azure architecture. Make an overview first; create a detailed data-flow diagram only if needed.
+Visual Architect chooses a data-flow/architecture view, keeps the unknown gateway generic, and generates an interactive artifact where every meaningful node and edge can receive targeted feedback.
+
+Run the bundled showcase:
+
+```bash
+npx visual-architect-skill demo
 ```
 
-## Review Canvas contract
+Open `visual-architect-demo.html` in a browser.
 
-Important diagram elements receive:
+## Review Studio contract
+
+For interactive diagrams the agent copies `skills/visual-architect/assets/review-canvas.html`, updates `#va-meta`, and replaces only the SVG between:
 
 ```html
-<g data-va-id="service-fees" data-va-label="Fees Service">...</g>
+<!-- VA:DIAGRAM_START -->
+...
+<!-- VA:DIAGRAM_END -->
 ```
 
-The stable ID survives layout changes and lets review feedback point to the same semantic element across revisions.
+Reviewable semantic elements use stable IDs:
 
-Feedback exports as structured JSON using the schema identifier `visual-architect/review@1`.
+```html
+<g data-va-id="service-fees" data-va-label="Fees Service" data-va-kind="service">...</g>
+```
 
-## Publishing checklist
+This keeps feedback traceable across revisions while avoiding regeneration of the UI shell.
 
-1. Pick your GitHub owner/repository and update `repository`, `bugs`, and `homepage` fields in `package.json`.
-2. Verify the npm package name is still available, or change `name` to your preferred scoped package such as `@your-org/visual-architect`.
-3. Run `npm run check`.
-4. Run `npm pack --dry-run` and inspect the file list.
-5. Commit and push the repository to GitHub.
-6. Sign in with `npm login` and publish with `npm publish --access public`.
-7. Test from a clean folder using both the npm CLI and `npx skills add ...`.
-8. Add screenshots/GIFs of the Review Canvas to the README before launch.
+## Development
+
+```bash
+npm run check
+npm pack --dry-run
+```
+
+The project intentionally has **zero production dependencies**.
+
+## Release 1.1.0
+
+If you already published `1.0.0`:
+
+```bash
+npm run check
+npm publish --access public
+```
+
+The package version in this source is `1.1.0`, so npm will publish it as the next version.
 
 ## Security & privacy
 
-Visual Architect has no production dependencies, does not send telemetry, and the Review Canvas runs locally. Generated artifacts should not include secrets, credentials, private keys, or sensitive source data unless the user explicitly understands the implications.
+Review Studio runs locally and sends no telemetry. Never place secrets, credentials, private keys, or sensitive source data into public diagram artifacts.
 
 ## License
 

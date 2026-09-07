@@ -1,5 +1,5 @@
 # Security
 
-Please report suspected vulnerabilities privately to the repository maintainer rather than opening a public issue containing exploit details.
+Please report security issues privately to the repository owner rather than opening a public issue with exploit details.
 
-Visual Architect intentionally ships with no runtime npm dependencies and no telemetry. The built-in Review Canvas is a local static HTML artifact. Users and agents should never embed credentials, secrets, tokens, or private keys in generated diagrams.
+Visual Architect intentionally has no production dependencies and no telemetry. Review artifacts may contain architecture information, so users should avoid including secrets, credentials, tokens, private keys, or confidential data in files intended for sharing.

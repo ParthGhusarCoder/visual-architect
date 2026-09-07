@@ -1,4 +1,5 @@
 node_modules/
 *.tgz
+visual-architect-demo.html
+review-canvas.html
 .DS_Store
-coverage/

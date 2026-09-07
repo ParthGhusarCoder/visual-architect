@@ -1,11 +1,11 @@
 # Contributing
 
-Contributions that improve semantic correctness, diagram readability, accessibility, review precision, and cross-agent portability are welcome.
+Keep the core skill compact. Prefer progressive-disclosure references over adding long instructions to `SKILL.md`.
 
-Before opening a pull request:
+Before submitting changes:
 
-1. run `npm run check`;
-2. keep runtime dependencies at zero unless there is a compelling reason;
-3. preserve the stable `data-va-id` review contract;
-4. update the changelog for user-visible changes;
-5. include a before/after example for changes to visual rules.
+```bash
+npm run check
+```
+
+For UI changes, preserve `VA:DIAGRAM_START`, `VA:DIAGRAM_END`, `#va-meta`, and the `data-va-*` review identity contract. Keep the Review Studio dependency-free and usable on mobile.
