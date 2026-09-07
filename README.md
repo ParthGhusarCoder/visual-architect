@@ -35,6 +35,23 @@ or:
 npx visual-architect-skill init
 ```
 
+## Run without installing
+
+The package exposes both `visual-architect-skill` and `visual-architect` as CLI aliases, so these work directly:
+
+```bash
+npx visual-architect-skill doctor
+npx visual-architect-skill demo
+npx visual-architect-skill canvas
+npx visual-architect-skill init
+```
+
+After a global install, use the shorter command:
+
+```bash
+visual-architect demo
+```
+
 ## CLI
 
 ```bash

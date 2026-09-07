@@ -1,23 +1,49 @@
 {
   "name": "visual-architect-skill",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "Token-efficient Agent Skill + polished review UI for clear, reviewable technical diagrams.",
   "type": "module",
   "bin": {
-  "visual-architect-skill": "bin/visual-architect.mjs",
-  "visual-architect": "bin/visual-architect.mjs"
-},
-  "files": ["bin","skills/visual-architect","README.md","LICENSE","CHANGELOG.md"],
+    "visual-architect-skill": "bin/visual-architect.mjs",
+    "visual-architect": "bin/visual-architect.mjs"
+  },
+  "files": [
+    "bin",
+    "skills/visual-architect",
+    "README.md",
+    "LICENSE",
+    "CHANGELOG.md"
+  ],
   "scripts": {
     "test": "node --test",
     "check": "node bin/visual-architect.mjs validate skills/visual-architect && node --test",
     "prepack": "npm run check"
   },
-  "engines": {"node": ">=18"},
-  "keywords": ["agent-skill","ai-agent","diagram","architecture","svg","technical-diagram","review","codex","claude-code","skills-sh"],
-  "repository": {"type":"git","url":"git+https://github.com/ParthGhusarCoder/visual-architect.git"},
-  "bugs": {"url":"https://github.com/ParthGhusarCoder/visual-architect/issues"},
+  "engines": {
+    "node": ">=18"
+  },
+  "keywords": [
+    "agent-skill",
+    "ai-agent",
+    "diagram",
+    "architecture",
+    "svg",
+    "technical-diagram",
+    "review",
+    "codex",
+    "claude-code",
+    "skills-sh"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ParthGhusarCoder/visual-architect.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ParthGhusarCoder/visual-architect/issues"
+  },
   "homepage": "https://github.com/ParthGhusarCoder/visual-architect#readme",
   "license": "MIT",
-  "publishConfig": {"access": "public"}
+  "publishConfig": {
+    "access": "public"
+  }
 }

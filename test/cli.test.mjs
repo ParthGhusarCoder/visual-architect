@@ -5,7 +5,7 @@ import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
 const cli=path.resolve('bin/visual-architect.mjs');
-test('version',()=>{assert.equal(execFileSync(process.execPath,[cli,'--version'],{encoding:'utf8'}).trim(),'1.1.0')});
+test('version',()=>{assert.equal(execFileSync(process.execPath,[cli,'--version'],{encoding:'utf8'}).trim(),'1.1.1')});
 test('validate bundled skill',()=>{assert.match(execFileSync(process.execPath,[cli,'validate'],{encoding:'utf8'}),/Compact SKILL\.md/)});
 test('skill stays token-efficient',()=>{assert.ok(fs.statSync('skills/visual-architect/SKILL.md').size<6000)});
 test('init installs skill',()=>{const tmp=fs.mkdtempSync(path.join(os.tmpdir(),'va-'));execFileSync(process.execPath,[cli,'init','--dir',tmp],{encoding:'utf8'});assert.ok(fs.existsSync(path.join(tmp,'visual-architect','SKILL.md')))});

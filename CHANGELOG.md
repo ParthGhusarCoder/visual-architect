@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.1.1
+
+- Fix `npx visual-architect-skill ...` on Windows and other environments by exposing a package-name CLI alias.
+- Keep `visual-architect` as the shorter global CLI alias.
+- Update package version/test expectations.
+
 ## 1.1.0
 
 - Reduced `SKILL.md` from ~9.1 KB to ~4.2 KB using progressive disclosure.
