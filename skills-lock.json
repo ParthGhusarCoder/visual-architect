@@ -1,0 +1,11 @@
+{
+  "version": 1,
+  "skills": {
+    "visual-architect": {
+      "source": "ParthGhusarCoder/visual-architect",
+      "sourceType": "github",
+      "skillPath": "skills/visual-architect/SKILL.md",
+      "computedHash": "5de3a3ba470d97ee54b6ec6a1f7f8d9f2eb05f058029f664bedf7b86bf4af933"
+    }
+  }
+}
