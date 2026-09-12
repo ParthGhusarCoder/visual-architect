@@ -1,5 +1,14 @@
 # Changelog
 
+## 1.2.0
+
+- Add broad-system planning guidance, coverage traceability, and comprehension checks.
+- Add a comprehensive School ERP student-enrollment benchmark and self-contained multi-view blueprint.
+- Add a premium narrative layer with stage drill-down, searchable coverage, persistent themes, keyboard navigation, reduced-motion support, and responsive guidance.
+- Add element-level change/add/discard review requests, visual discard markers, persistent request state, and agent-ready JSON/Markdown handoff.
+- Make `enrollment-demo` generate `index.html` by default and support immediate launch with `--open`.
+- Add the tested `enrollment-demo` CLI command.
+
 ## 1.1.1
 
 - Fix `npx visual-architect-skill ...` on Windows and other environments by exposing a package-name CLI alias.

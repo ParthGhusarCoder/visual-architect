@@ -13,12 +13,22 @@ Create diagrams that are **semantically true, immediately readable, and cheap to
 
 `MODEL -> SELECT -> SIMPLIFY -> DRAW -> CHECK -> DELIVER`
 
-1. **MODEL** — identify nodes, groups, edges, direction/time, boundaries, and facts vs assumptions. Never invent missing architecture. Mark uncertainty as `Assumption`, `Proposed`, `Example`, or `TBD`.
+1. **MODEL** — identify audience, reader question, nodes, groups, edges, direction/time, boundaries, and facts vs assumptions. Never invent missing architecture. Mark uncertainty as `Assumption`, `Proposed`, `Example`, or `TBD`. If the request says “all,” “complete,” or “end-to-end,” read `references/planning.md` and build a coverage inventory before drawing.
 2. **SELECT** — choose the diagram grammar yourself. Read `references/diagram-types.md` only if selection is unclear.
-3. **SIMPLIFY** — default overview target is 5–12 primary nodes. Group or split before shrinking text.
+3. **SIMPLIFY** — default overview target is 5–12 primary nodes. Group or split before shrinking text. Simplicity must not silently remove requested scope; keep omitted detail traceable in a companion view or coverage note.
 4. **DRAW** — use strong hierarchy, short labels, clean routing, and one dominant reading direction. For substantial diagrams, read `references/design-rules.md`.
 5. **CHECK** — verify semantics, overlaps, crossings, readability, and state/assumption labels. Read `references/validation.md` when the diagram is non-trivial or source-derived.
-6. **DELIVER** — default to one self-contained `.html` file with inline SVG/CSS. Keep editable source. Export PNG/SVG/PDF/Mermaid/draw.io only when requested and supported.
+6. **DELIVER** — default to a self-contained `index.html` with editable inline SVG/CSS. Use other formats only when requested. If the user asks for a preview, open the validated file after writing it.
+
+## Broad systems and planning
+
+For a broad product, workflow, or “cover everything” request, produce a small diagram set instead of one overloaded canvas:
+
+1. an overview answering the main business question;
+2. focused views for materially different concerns such as ownership, states, data, integrations, or deployment;
+3. a concise coverage note mapping requested capabilities to a view or marking them `Out of scope` / `TBD`.
+
+Default to a mixed audience when none is named: plain-language labels first, technical detail second. Expand uncommon acronyms, include a legend when encodings are not obvious, and make exception paths visible when they change the outcome. Never claim “complete” from an incomplete brief; call it a `Proposed reference model` and list assumptions.
 
 ## Token-efficient behavior
 
@@ -30,6 +40,7 @@ Use progressive disclosure:
 - For interactive review, **copy** `assets/review-canvas.html` and replace only its metadata + diagram region. Do not rewrite the UI shell from scratch.
 - Prefer concise SVG using the template's reusable classes instead of repeated inline styling.
 - Keep node labels short; put secondary explanation in notes/callouts.
+- Reuse the user’s domain language; do not rename familiar roles or stages merely to sound technical.
 
 ## Diagram selection shorthand
 
@@ -52,6 +63,8 @@ If one canvas mixes incompatible questions, create an overview plus focused deta
 ## Interactive review (only when useful)
 
 Copy `assets/review-canvas.html`. Preserve its UI/JS and replace content between the `VA:DIAGRAM_START` / `VA:DIAGRAM_END` markers plus the `va-meta` JSON.
+
+Support `Comment/change`, `Add`, and `Discard`. “Finish review” exports `review@2` JSON plus an agent brief. Standalone files copy/download it; hosted views emit the event in `references/review-protocol.md`. Never claim receipt without host acknowledgement.
 
 Important semantic elements must have stable identity:
 

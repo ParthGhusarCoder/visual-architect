@@ -21,4 +21,6 @@ Use only for interactive/reviewable HTML.
 
 Important nodes/edges need `data-va-id`, `data-va-label`, and preferably `data-va-kind`.
 
-Keep the default `1200×760` viewBox when practical. The shell handles dark/light themes, zoom, pan, fit, selection, mobile review sheet, feedback status, persistence, copy/download JSON, and keyboard shortcuts.
+Keep the default `1200×760` viewBox when practical. The shell handles dark/light themes, zoom, pan, fit, selection, mobile review sheet, typed review requests (`Comment/change`, `Add`, `Discard`), feedback status, persistence, agent-brief handoff, copy/download JSON, and keyboard shortcuts.
+
+Use stable IDs for any element that may be discarded or changed. An `Add` request can target the whole diagram when the concept does not yet exist. Preserve the shell’s review-ready `postMessage` and custom-event contract when embedding it in another experience.

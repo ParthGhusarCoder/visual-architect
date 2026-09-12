@@ -34,3 +34,13 @@
 - Executive: business/system names and major flows.
 - Mixed: components plus important implementation concepts.
 - Engineer: protocols, stores, queues, interfaces, boundaries, keys, or other requested technical detail.
+
+## Premium finish (when requested)
+- Treat “premium,” “polished,” or “lavish” as a request for confident hierarchy and thoughtful interaction, not more decoration.
+- Establish one signature visual motif, a restrained semantic palette, consistent spacing, and layered depth. Avoid generic glass cards everywhere, excessive gradients, or competing accents.
+- Give the artifact a narrative entry point: a concise promise, the reader question, and an obvious first focal element.
+- Use progressive disclosure for detail. Selection, tabs, filters, or drill-down panels must help a real review task rather than merely demonstrate interactivity.
+- Add short, audience-aware microcopy that explains why a view matters and what action or decision follows.
+- Animate only relationships, transitions, or state changes that benefit from motion. Keep motion subtle and honor `prefers-reduced-motion`.
+- Design keyboard focus, hover, active, empty, error, and narrow-screen behavior as first-class states.
+- Finish with desktop and narrow-screen visual QA; verify that premium styling did not reduce contrast, legibility, or semantic accuracy.

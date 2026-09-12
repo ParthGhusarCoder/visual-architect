@@ -1,5 +1,11 @@
 # School ERP Examples
 
+## Comprehensive student enrollment benchmark
+
+“Create a proposed, end-to-end student-enrollment blueprint for a multi-campus School ERP. It must be understandable to families, admissions staff, school leaders, and engineers. Cover the happy path, ownership handoffs, decision states, exceptions, core data, integrations, privacy controls, and operational reporting. Do not imply that proposed rules are current school policy.”
+
+Use `school-erp-student-enrollment.md` as the coverage and acceptance benchmark. The matching `school-erp-student-enrollment.html` demonstrates a plain-language lifecycle overview; focused state, data, and operational views remain separate so the overview stays readable.
+
 ## Architecture
 "Create a current-state architecture diagram for our School ERP showing Web Admin, Teacher App, Parent App, API, authentication, attendance, fees, exams, notifications, database, cache, and external payment/SMS providers. Mark anything you cannot verify as an assumption."
 

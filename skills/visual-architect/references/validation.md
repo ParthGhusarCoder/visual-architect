@@ -5,6 +5,7 @@ Perform two passes: semantic and visual.
 ## Semantic validation
 - Does every primary node have a reason to exist?
 - Are required actors/systems/entities represented?
+- For broad requests, can every requested capability be traced to a view, coverage note, `Out of scope`, or `TBD`?
 - Are relationships directionally correct?
 - Are labels unambiguous?
 - Are current, proposed, external, and assumed elements clearly identified when relevant?
@@ -13,6 +14,14 @@ Perform two passes: semantic and visual.
 - For sequence diagrams, is message order coherent?
 - For ER/schema diagrams, are relationship cardinalities/keys shown only when known?
 - For deployment diagrams, are runtime/deployment boundaries distinct from logical components?
+- Are outcome-changing exception paths represented, not hidden behind the happy path?
+
+## Comprehension validation
+- Can a first-time reader explain the diagram’s purpose and main path in under a minute?
+- Are domain terms familiar to the intended audience, with uncommon acronyms expanded?
+- Is ownership clear where handoffs matter?
+- Is detail progressively disclosed rather than crowded onto the overview?
+- Can a reader distinguish confirmed facts, proposals, assumptions, and unresolved items without relying on color?
 
 ## Visual validation
 - No overlapping text.
@@ -24,6 +33,7 @@ Perform two passes: semantic and visual.
 - Clear start/focal point.
 - Legend exists if visual encodings are not self-evident.
 - Contrast is sufficient.
+- Keyboard focus and text alternatives are present when the HTML is interactive.
 
 ## Complexity validation
 If the diagram feels crowded, simplify in this order:
